@@ -1,6 +1,7 @@
 let number1;
 let operator;
 let number2;
+let displayValue;
 
 const display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -35,7 +36,7 @@ buttons.forEach(button => {
         return;
     } else {
         button.addEventListener('click', () => {
-            display.textContent = button.textContent;
+            displayValue = display.textContent = button.textContent;
         })
     }
 })
