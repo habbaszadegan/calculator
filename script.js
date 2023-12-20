@@ -7,6 +7,7 @@ const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 const nums = document.querySelectorAll('.nums');
 const operat3r = document.querySelectorAll('.operator');
+const buttons = document.querySelectorAll('button');
 
 
 function operate (chosenOperator, num1, num2) {
@@ -29,12 +30,26 @@ function operate (chosenOperator, num1, num2) {
     }
 }
 
-nums.forEach(button => {
-    button.addEventListener('click', () => {
-        display.textContent = button.textContent;
-    })
+buttons.forEach(button => {
+    if (button.id === '#clear' || button.id === '#delete') {
+        return;
+    } else {
+        button.addEventListener('click', () => {
+            display.textContent = button.textContent;
+        })
+    }
 })
 
-// create an event listener and assign it the corresponding number click to populate the display with.
-// create on eevent listener, loop over all items, if the string matches the current iteration populate 
-// that value into the display
+//-----------------------------------------------------------------------------------------------------
+
+// UNUSED CODE SOLUTIONS
+
+// nums.forEach(button => {
+//     button.addEventListener('click', () => {
+//         display.textContent = button.textContent;
+//     })
+// })
+
+// operat3r.forEach(button => {
+
+// })
