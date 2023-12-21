@@ -32,14 +32,20 @@ function operate (chosenOperator, num1, num2) {
 }
 
 buttons.forEach(button => {
-    if (button.id === '#clear' || button.id === '#delete') {
-        return;
-    } else {
+    if (!(button === clear || button === del)) {
         button.addEventListener('click', () => {
             displayValue = display.textContent = button.textContent;
         })
     }
 })
+
+// Make the calculator work! You’ll need to store the first number and second number that are input into the 
+// calculator, utilize the operator that the user selects, and then operate() on the two numbers when the user 
+// presses the “=” key.
+// You should already have the code that can populate the display, so once operate() has been called, update the 
+// display with the ‘solution’ to the operation.
+// This is the hardest part of the project. You need to figure out how to store all the values and call the operate 
+// function with them. Don’t feel bad if it takes you a while to figure out the logic.
 
 //-----------------------------------------------------------------------------------------------------
 
