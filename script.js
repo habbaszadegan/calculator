@@ -1,7 +1,7 @@
-let number1;
+let currentNumber = 0;
 let operator;
 let number2;
-let displayValue;
+let displayValue = '';
 
 const display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -34,10 +34,30 @@ function operate (chosenOperator, num1, num2) {
 buttons.forEach(button => {
     if (!(button === clear || button === del)) {
         button.addEventListener('click', () => {
-            displayValue = display.textContent = button.textContent;
+            if (display.textContent === '0') {
+                display.textContent = '';
+            }
+            display.textContent += button.textContent;
         })
     }
 })
+
+// --> needs work
+clear.addEventListener('click', () => {
+
+})
+
+// --> needs work
+del.addEventListener('click', () => {
+
+})
+
+//step 1: update display value so the numbers follow each other instead of overwriting each other
+    //step 1a: write separate function for step 1
+//step 2: acknowledge the operator input is the end of number input for num1 and we've moved on to num2
+//step 3: repeat step 1 for num2
+//step 3: take in our three stored variables and initiate operate when clicking '='.
+
 
 // Make the calculator work! You’ll need to store the first number and second number that are input into the 
 // calculator, utilize the operator that the user selects, and then operate() on the two numbers when the user 
