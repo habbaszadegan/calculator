@@ -1,4 +1,4 @@
-let currentNumber = 0;
+let currentNumber = '';
 let operator;
 let number2;
 let displayValue = '';
@@ -31,15 +31,25 @@ function operate (chosenOperator, num1, num2) {
     }
 }
 
-buttons.forEach(button => {
-    if (!(button === clear || button === del)) {
-        button.addEventListener('click', () => {
-            if (display.textContent === '0') {
-                display.textContent = '';
-            }
-            display.textContent += button.textContent;
-        })
-    }
+nums.forEach(button => {
+    button.addEventListener('click', () => {
+        if (display.textContent === '0') {
+            display.textContent = '';
+        }
+        if (operator) {
+            display.textContent = '';
+        }
+        display.textContent += button.textContent;
+    })
+})
+
+operat3r.forEach(button => {
+    button.addEventListener('click', () => {
+        currentNumber = display.textContent;
+        operator = button.textContent;
+        console.log(currentNumber);
+        console.log(operator);
+    })
 })
 
 // --> needs work
