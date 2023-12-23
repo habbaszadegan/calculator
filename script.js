@@ -2,6 +2,7 @@ let currentNumber = '';
 let operator;
 let number2;
 let displayValue = '';
+let clearedDisplayForOperator = false;
 
 const display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -37,7 +38,10 @@ nums.forEach(button => {
             display.textContent = '';
         }
         if (operator) {
-            display.textContent = '';
+            if (!clearedDisplayForOperator) { // Clear display only if not done yet
+                display.textContent = '';
+                clearedDisplayForOperator = true; // Set flag to prevent further clearing
+            }
         }
         display.textContent += button.textContent;
     })
@@ -47,6 +51,7 @@ operat3r.forEach(button => {
     button.addEventListener('click', () => {
         currentNumber = display.textContent;
         operator = button.textContent;
+        clearedDisplayForOperator = false;
         console.log(currentNumber);
         console.log(operator);
     })
@@ -66,7 +71,8 @@ del.addEventListener('click', () => {
     //step 1a: write separate function for step 1
 //step 2: acknowledge the operator input is the end of number input for num1 and we've moved on to num2
 //step 3: repeat step 1 for num2
-//step 3: take in our three stored variables and initiate operate when clicking '='.
+    // step 3a: if the operator is already set, run the operation and continue collecting numbers.
+//step 4: take in our three stored variables and initiate operate when clicking '='.
 
 
 // Make the calculator work! You’ll need to store the first number and second number that are input into the 
@@ -76,17 +82,3 @@ del.addEventListener('click', () => {
 // display with the ‘solution’ to the operation.
 // This is the hardest part of the project. You need to figure out how to store all the values and call the operate 
 // function with them. Don’t feel bad if it takes you a while to figure out the logic.
-
-//-----------------------------------------------------------------------------------------------------
-
-// UNUSED CODE SOLUTIONS
-
-// nums.forEach(button => {
-//     button.addEventListener('click', () => {
-//         display.textContent = button.textContent;
-//     })
-// })
-
-// operat3r.forEach(button => {
-
-// })
