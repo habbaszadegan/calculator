@@ -1,10 +1,10 @@
 let currentNumber = '';
-let operator;
-let number2;
+let operator = '';
+let number2 = '';
 let displayValue = '';
 let clearedDisplayForOperator = false;
 
-const display = document.querySelector('#display');
+let display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 const nums = document.querySelectorAll('.nums');
@@ -59,7 +59,12 @@ operat3r.forEach(button => {
 
 // --> needs work
 clear.addEventListener('click', () => {
-
+    currentNumber = '';
+    operator = '';
+    number2 = '';
+    displayValue = '';
+    clearedDisplayForOperator = false;
+    display.textContent = 0;
 })
 
 // --> needs work
