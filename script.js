@@ -1,6 +1,6 @@
 let currentNumber = '';
 let operator = '';
-let number2 = '';
+let number2 = null;
 let displayValue = '';
 let clearedDisplayForOperator = false;
 
@@ -13,21 +13,23 @@ const buttons = document.querySelectorAll('button');
 
 
 function operate (chosenOperator, num1, num2) {
+    a = Number(num1);
+    b = Number(num2);
     switch (chosenOperator) {
         case '+':
-            return num1 + num2;
+            return a + b;
             break;
         case '-':
-            return num1 - num2;
+            return a - b;
             break;
         case '*':
-            return num1 * num2;
+            return a * b;
             break;
         case '/':
-            return num1 / num2;
+            return a / b;
             break;
         default:
-            console.log(`Invalid operator: "${chosenOperator}". Please enter a valid operator (+, -, *, /).`);
+            alert(`Invalid operator: "${chosenOperator}". Please enter a valid operator (+, -, *, /).`);
             return NaN; // or return null or undefined depending on your desired behavior
     }
 }
@@ -52,22 +54,23 @@ operat3r.forEach(button => {
         currentNumber = display.textContent;
         operator = button.textContent;
         clearedDisplayForOperator = false;
-        console.log(currentNumber);
-        console.log(operator);
+        if (button.textContent === '=') {
+            if (currentNumber && operator && number2) {
+                operate(operator, currentNumber, number2);
+            }
+        }
     })
 })
 
-// --> needs work
 clear.addEventListener('click', () => {
     currentNumber = '';
     operator = '';
-    number2 = '';
+    number2 = null;
     displayValue = '';
     clearedDisplayForOperator = false;
     display.textContent = 0;
 })
 
-// --> needs work
 del.addEventListener('click', () => {
     display.textContent = display.textContent.slice(0, -1);
     if (display.textContent === '') {
