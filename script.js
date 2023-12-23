@@ -69,7 +69,10 @@ clear.addEventListener('click', () => {
 
 // --> needs work
 del.addEventListener('click', () => {
-
+    display.textContent = display.textContent.slice(0, -1);
+    if (display.textContent === '') {
+        display.textContent = 0;
+    }
 })
 
 //step 1: update display value so the numbers follow each other instead of overwriting each other
