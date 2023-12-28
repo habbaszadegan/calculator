@@ -1,6 +1,6 @@
-let currentNumber = '';
+let currentNum = '';
 let operator = '';
-let number2 = null;
+let nextNum = '';
 let displayValue = '';
 let clearedDisplayForOperator = false;
 
@@ -17,7 +17,8 @@ function operate (chosenOperator, num1, num2) {
     b = Number(num2);
     switch (chosenOperator) {
         case '+':
-            return a + b;
+            display.textContent = a + b;
+            return;
             break;
         case '-':
             return a - b;
@@ -51,21 +52,24 @@ nums.forEach(button => {
 
 operat3r.forEach(button => {
     button.addEventListener('click', () => {
-        currentNumber = display.textContent;
+        currentNum = display.textContent;
         operator = button.textContent;
         clearedDisplayForOperator = false;
         if (button.textContent === '=') {
-            if (currentNumber && operator && number2) {
-                operate(operator, currentNumber, number2);
+            console.log(operator);
+            console.log(currentNum);
+            console.log(nextNum);
+            if (currentNum && operator && nextNum) {
+                operate(operator, currentNum, nextNum);
             }
         }
     })
 })
 
 clear.addEventListener('click', () => {
-    currentNumber = '';
+    currentNum = '';
     operator = '';
-    number2 = null;
+    nextNum = '';
     displayValue = '';
     clearedDisplayForOperator = false;
     display.textContent = 0;
