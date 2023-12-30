@@ -19,16 +19,15 @@ function operate (chosenOperator, num1, num2) {
     switch (chosenOperator) {
         case '+':
             display.textContent = a + b;
-            return;
             break;
         case '-':
-            return a - b;
+            display.textContent = a - b;
             break;
         case '*':
-            return a * b;
+            display.textContent = a * b;
             break;
         case '/':
-            return a / b;
+            display.textContent = a / b;
             break;
         default:
             alert(`Invalid operator: "${chosenOperator}". Please enter a valid operator (+, -, *, /).`);
@@ -53,21 +52,13 @@ nums.forEach(button => {
 
 operat3r.forEach(button => {
     button.addEventListener('click', () => {
-        if (currentNum) {
-            nextNum = display.textContent;
-        } else {
-            currentNum = display.textContent;
-        }
+        whichNum(currentNum, nextNum);
         operator = button.textContent;
     })
 })
 
 equals.addEventListener('click', () => {
-    if (currentNum) {
-        nextNum = display.textContent;
-    } else {
-        currentNum = display.textContent;
-    }
+    whichNum(currentNum, nextNum);
     clearedDisplayForOperator = false;
     if (currentNum && operator && nextNum) {
         console.log(nextNum);
@@ -90,6 +81,14 @@ del.addEventListener('click', () => {
         display.textContent = 0;
     }
 })
+
+function whichNum(current, next) {
+    if (current) {
+        nextNum = display.textContent;
+    } else {
+        currentNum = display.textContent;
+    }
+}
 
 //step 1: update display value so the numbers follow each other instead of overwriting each other
     //step 1a: write separate function for step 1
