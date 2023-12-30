@@ -53,6 +53,11 @@ nums.forEach(button => {
 operat3r.forEach(button => {
     button.addEventListener('click', () => {
         whichNum(currentNum, nextNum);
+        clearedDisplayForOperator = false;
+        if (operator) {
+            operate(operator, currentNum, nextNum);
+            currentNum = display.textContent;
+        }
         operator = button.textContent;
     })
 })
@@ -61,9 +66,9 @@ equals.addEventListener('click', () => {
     whichNum(currentNum, nextNum);
     clearedDisplayForOperator = false;
     if (currentNum && operator && nextNum) {
-        console.log(nextNum);
         operate(operator, currentNum, nextNum);
     }
+    nextNum = '';
 })
 
 clear.addEventListener('click', () => {
@@ -96,6 +101,8 @@ function whichNum(current, next) {
 //step 3: repeat step 1 for num2
     // step 3a: if the operator is already set, run the operation and continue collecting numbers.
 //step 4: take in our three stored variables and initiate operate when clicking '='.
+//step 5: if there is an operator already stored in our variable, run the operate() function and replace
+//currentNum with the result of the function
 
 
 // Make the calculator work! You’ll need to store the first number and second number that are input into the 
