@@ -9,6 +9,7 @@ const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 const nums = document.querySelectorAll('.nums');
 const operat3r = document.querySelectorAll('.operator');
+const equals = document.querySelector('.equals');
 const buttons = document.querySelectorAll('button');
 
 
@@ -52,18 +53,26 @@ nums.forEach(button => {
 
 operat3r.forEach(button => {
     button.addEventListener('click', () => {
-        currentNum = display.textContent;
-        operator = button.textContent;
-        clearedDisplayForOperator = false;
-        if (button.textContent === '=') {
-            console.log(operator);
-            console.log(currentNum);
-            console.log(nextNum);
-            if (currentNum && operator && nextNum) {
-                operate(operator, currentNum, nextNum);
-            }
+        if (currentNum) {
+            nextNum = display.textContent;
+        } else {
+            currentNum = display.textContent;
         }
+        operator = button.textContent;
     })
+})
+
+equals.addEventListener('click', () => {
+    if (currentNum) {
+        nextNum = display.textContent;
+    } else {
+        currentNum = display.textContent;
+    }
+    clearedDisplayForOperator = false;
+    if (currentNum && operator && nextNum) {
+        console.log(nextNum);
+        operate(operator, currentNum, nextNum);
+    }
 })
 
 clear.addEventListener('click', () => {
