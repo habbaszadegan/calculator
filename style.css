@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+#container {
+    padding: 20px;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+}
+
+#display {
+    height: 100px;
+    text-align: right;
+}
+
+#calculator-body {
+
+}
+
+#clean-screen {
+
+}
+
+#main-body {
+
+}
+
+#container, #display, #calculator-body, #clear, #delete, .nums, .operator, .equals {
+    border: 2px solid black;
+    border-radius: 5px;
+}
