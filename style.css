@@ -24,6 +24,7 @@ body {
 #clean-screen {
     display: flex;
     gap: 5px;
+    margin-bottom: 20px;
 }
 
 #clean-screen button {
@@ -36,8 +37,15 @@ body {
     display: flex;
 }
 
-#main-body button {
-    flex: auto;
+#main-body {
+    height: 320px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#main-body button{
+    flex: 1 1 75px;
+    font-size: 20px;
 }
 
 #container, #display, #clear, #delete, .nums, .operator, .equals {
