@@ -12,10 +12,6 @@ body {
     background-color: rgb(178, 178, 178);
 }
 
-p {
-    margin: 22px;
-}
-
 #display {
     height: 80px;
     padding: 0px 10px;

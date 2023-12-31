@@ -3,6 +3,7 @@ let operator = '';
 let nextNum = '';
 let displayValue = '';
 let clearedDisplayForOperator = false;
+// let decimalCheck = false;
 
 let display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -19,17 +20,20 @@ function operate (chosenOperator, num1, num2) {
     b = Number(num2);
     switch (chosenOperator) {
         case '+':
-            result = (a + b).toFixed(2);
-            display.textContent = result;
+            display.textContent = round(a + b);
             break;
         case '-':
-            display.textContent = a - b;
+            display.textContent = round(a - b);
             break;
         case '*':
-            display.textContent = a * b;
+            display.textContent = round(a * b);
             break;
         case '/':
-            display.textContent = a / b;
+            if (b == 0) {
+                display.textContent = 'Try again :)';
+            } else {
+                display.textContent = round(a / b);
+            }
             break;
         default:
             alert(`Invalid operator: "${chosenOperator}". Please enter a valid operator (+, -, *, /).`);
@@ -47,6 +51,11 @@ nums.forEach(button => {
                 display.textContent = '';
                 clearedDisplayForOperator = true; // Set flag to prevent further clearing
             }
+        // } else if (button === '.') {
+        //     if (!decimalCheck) {
+        //         display.textContent = display.textContent.slice(0, -1);
+        //         decimalCheck = true;
+        //     }
         }
         display.textContent += button.textContent;
     })
@@ -96,6 +105,10 @@ function whichNum(current, next) {
         currentNum = display.textContent;
     }
 }
+
+function round(value) {
+    return Number(Math.round(value+'e3')+'e-3');
+  }
 
 //step 1: update display value so the numbers follow each other instead of overwriting each other
     //step 1a: write separate function for step 1
