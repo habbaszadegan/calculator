@@ -14,11 +14,13 @@ const buttons = document.querySelectorAll('button');
 
 
 function operate (chosenOperator, num1, num2) {
+    let result;
     a = Number(num1);
     b = Number(num2);
     switch (chosenOperator) {
         case '+':
-            display.textContent = a + b;
+            result = (a + b).toFixed(2);
+            display.textContent = result;
             break;
         case '-':
             display.textContent = a - b;
