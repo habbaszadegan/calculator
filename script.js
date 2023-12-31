@@ -3,7 +3,7 @@ let operator = '';
 let nextNum = '';
 let displayValue = '';
 let clearedDisplayForOperator = false;
-let decimalCheck = false;
+// let decimalCheck = false;
 
 let display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -51,16 +51,13 @@ nums.forEach(button => {
                 display.textContent = '';
                 clearedDisplayForOperator = true; // Set flag to prevent further clearing
             }
-        } else if (button.textContent === '.') {
-            if (display.textContent.includes('.')) {
-                const firstIndex = display.textContent.indexOf('.');
-                if (display.textContent.indexOf('.', firstIndex + 1) !== -1) {
-                    
-                }
-            }
-        } else {
-            display.textContent += button.textContent;   
+        // } else if (button === '.') {
+        //     if (!decimalCheck) {
+        //         display.textContent = display.textContent.slice(0, -1);
+        //         decimalCheck = true;
+        //     }
         }
+        display.textContent += button.textContent;
     })
 })
 
@@ -111,15 +108,6 @@ function whichNum(current, next) {
 
 function round(value) {
     return Number(Math.round(value+'e3')+'e-3');
-}
-
-function hasMultipleOccurrences(str, char) {
-    if (str.includes(char)) {
-        const firstIndex = str.indexOf(char);
-        return str.indexOf(char, firstIndex + 1) !== -1;
-    } else {
-        return false;
-    }
 }
 
 //step 1: update display value so the numbers follow each other instead of overwriting each other
