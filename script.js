@@ -3,7 +3,7 @@ let operator = '';
 let nextNum = '';
 let displayValue = '';
 let clearedDisplayForOperator = false;
-// let decimalCheck = false;
+let decimalCheck = false;
 
 let display = document.querySelector('#display');
 const clear = document.querySelector('#clear');
@@ -51,11 +51,11 @@ nums.forEach(button => {
                 display.textContent = '';
                 clearedDisplayForOperator = true; // Set flag to prevent further clearing
             }
-        // } else if (button === '.') {
-        //     if (!decimalCheck) {
-        //         display.textContent = display.textContent.slice(0, -1);
-        //         decimalCheck = true;
-        //     }
+        } else if (button === '.') {
+            if (!decimalCheck) {
+                display.textContent = display.textContent.slice(0, -1);
+                decimalCheck = true;
+            }
         }
         display.textContent += button.textContent;
     })
