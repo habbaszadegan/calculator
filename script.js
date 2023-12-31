@@ -102,3 +102,12 @@ function whichNum(current, next) {
 function round(value) {
     return Number(Math.round(value+'e3')+'e-3');
 }
+
+// decimal.addEventListener('click', () => {
+//     const firstIndex = display.textContent.indexOf('.');
+//     if (display.textContent.indexOf('.', firstIndex + 1) !== -1) {
+//         return;
+//     } else {
+//         display.textContent += button.textContent;
+//     }
+// })
