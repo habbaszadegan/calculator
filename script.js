@@ -9,6 +9,7 @@ const clear = document.querySelector('#clear');
 const del = document.querySelector('#delete');
 const nums = document.querySelectorAll('.nums');
 const operat3r = document.querySelectorAll('.operator');
+const decimal = document.querySelector('.decimal');
 const equals = document.querySelector('.equals');
 
 
@@ -65,6 +66,14 @@ operat3r.forEach(button => {
     })
 })
 
+decimal.addEventListener('click', () => {
+    if (display.textContent.indexOf('.') !== -1) {
+        return;
+    } else {
+        display.textContent += decimal.textContent;
+    }
+})
+
 equals.addEventListener('click', () => {
     whichNum(currentNum, nextNum);
     clearedDisplayForOperator = false;
@@ -102,12 +111,3 @@ function whichNum(current, next) {
 function round(value) {
     return Number(Math.round(value+'e3')+'e-3');
 }
-
-// decimal.addEventListener('click', () => {
-//     const firstIndex = display.textContent.indexOf('.');
-//     if (display.textContent.indexOf('.', firstIndex + 1) !== -1) {
-//         return;
-//     } else {
-//         display.textContent += button.textContent;
-//     }
-// })
