@@ -46,9 +46,6 @@ body {
 
 #main-body {
     display: flex;
-}
-
-#main-body {
     height: 320px;
     flex-wrap: wrap;
     gap: 5px;
@@ -59,7 +56,7 @@ body {
     font-size: 20px;
 }
 
-#container, #display, #clear, #delete, .nums, .operator, .equals, .decimal {
+#container, #display, #clear, button {
     border: 2px solid black;
     border-radius: 10px;
 }
